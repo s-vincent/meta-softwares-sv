@@ -36,10 +36,18 @@ perform_chmod () {
   eval flock -x $rootdir${sysconfdir} -c  \"$PSEUDO chmod \$opts\" || true
 }
 
+perform_chown () {
+	local rootdir="$1"
+	local opts="$2"
+	bbnote "${PN}: Performing chown with [$opts]"
+
+  eval flock -x $rootdir${sysconfdir} -c  \"$PSEUDO chown \$opts\" || true
+}
+
 # Set permission to files / directories
 set_permission_files () {
 	user_settings="${EXTRA_PERMISSIONS_PARAMS}"
-  path="${IMAGE_ROOTFS}"
+	path="${IMAGE_ROOTFS}"
 	export PSEUDO="${FAKEROOTENV} ${STAGING_DIR_NATIVE}${bindir}/pseudo"
 	setting=`echo $user_settings | cut -d ';' -f1`
 	remaining=`echo $user_settings | cut -d ';' -f2-`
@@ -48,12 +56,14 @@ set_permission_files () {
 		cmd=`echo $setting | cut -d ' ' -f1`
 		opts=`echo $setting | cut -d ' ' -f2-`
 
-    contains "$opts" "$path" || bbfatal "Path have to contains IMAGE_ROOTFS: $cmd $opts $path"
+		contains "$opts" "$path" || bbfatal "Path have to contains IMAGE_ROOTFS: $cmd $opts $path"
 
 		case $cmd in
 			chmod)
-      chmod $opts 
 				perform_chmod "${IMAGE_ROOTFS}" "$opts"
+				;;
+			chown)
+				perform_chown "${IMAGE_ROOTFS}" "$opts"
 				;;
 			*)
 				bbfatal "Invalid command in EXTRA_PERMISSIONS_PARAMS: $cmd"
