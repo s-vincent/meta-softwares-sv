@@ -1,0 +1,19 @@
+#!/bin/sh
+
+NAME=hello
+
+case "$1" in
+  start)
+  echo "Starting $NAME"
+  ;;
+  stop)
+  echo "Stopping $NAME"
+  ;;
+  *)
+  N=/etc/init.d/$NAME
+  echo "Usage: $N {start|stop}" >&2
+  exit1
+  ;;
+esac
+
+exit 0
