@@ -1,5 +1,5 @@
-# This bbclass is mainly used for image level user/group configuration.
-# Inherit this class if you want to make EXTRA_USERS_PARAMS effective.
+# This bbclass is mainly used for image level permissions configuration.
+# Inherit this class if you want to make EXTRA_PERMISSIONS_PARAMS effective.
 
 # Below is an example showing how to use this functionality.
 # INHERIT += "extrapermissions"
