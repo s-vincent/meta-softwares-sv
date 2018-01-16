@@ -5,7 +5,9 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0;md5=801f80980d171dd6425
 SECTION = "xenomai"
 PR = "r0"
 
+# based on an article from OpenSilicium 16 magazine
 SRC_URI = "http://xenomai.org/downloads/xenomai/stable/xenomai-3.0.6.tar.bz2 \
+           file://xeno-config-cc.patch \
           "
 SRC_URI[md5sum] = "6017203d0992bb5334498c196bf6f25d"
 SRC_URI[sha256sum] = "2c0dd3f0e36e4a10f97e0028989bb873e80f4d1ce212ac55fd3b28857c464f94"
@@ -42,4 +44,7 @@ FILES_${PN} += "/usr/xenomai/demo/*"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 EXTRA_OECONF_append = " --with-core=cobalt --enable-smp --enable-pshared"
 EXTRA_OEMAKE_append = " 'LDFLAGS=${LDFLAGS}'"
+
+# Adds xeno-config to sysroot
+SYSROOT_DIRS += "${bindir}"
 

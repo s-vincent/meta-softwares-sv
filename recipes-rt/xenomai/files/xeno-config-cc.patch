@@ -1,0 +1,11 @@
+--- a/scripts/xeno-config-cobalt.in	2018-01-16 18:46:07.794292165 +0100
++++ b/scripts/xeno-config-cobalt.in	2018-01-16 18:46:19.874104354 +0100
+@@ -11,7 +11,7 @@
+ 
+ XENO_VERSION="@PACKAGE_VERSION@"
+ XENO_PREFIX="${staging}${prefix}"
+-XENO_CC="@CC@"
++XENO_CC="${CC}"
+ XENO_TARGET_ARCH="@XENO_TARGET_ARCH@"
+ XENO_INCLUDE_DIR="${staging}${includedir}"
+ XENO_BASE_CFLAGS="-I$XENO_INCLUDE_DIR/cobalt -I$XENO_INCLUDE_DIR @XENO_USER_APP_CFLAGS@ -D__COBALT__"
