@@ -13,11 +13,11 @@ do_compile() {
   xenoconfig="${STAGING_DIR_TARGET}/usr/xenomai/bin/xeno-config"
   xenocc=`DESTDIR=${STAGING_DIR_TARGET} ${xenoconfig} --cc --cflags --ldflags --skin=native`
   echo ${xenocc}
-  ${xenocc} ${LDFLAGS} hello.c -o hello-xenomai
+  ${xenocc} ${LDFLAGS} hello.c -o hello_xenomai
 }
 
 do_install() {
   install -d ${D}${bindir}
-  install -m 0755 hello-xenomai ${D}${bindir}
+  install -m 0755 hello_xenomai ${D}${bindir}
 }
 
