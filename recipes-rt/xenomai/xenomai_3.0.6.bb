@@ -6,13 +6,13 @@ SECTION = "xenomai"
 PR = "r0"
 
 # based on an article from OpenSilicium 16 magazine
-SRC_URI = "http://xenomai.org/downloads/xenomai/stable/xenomai-3.0.6.tar.bz2 \
+SRC_URI = "http://xenomai.org/downloads/xenomai/stable/xenomai-3.0.8.tar.bz2 \
            file://xeno-config-cc.patch \
           "
-SRC_URI[md5sum] = "6017203d0992bb5334498c196bf6f25d"
-SRC_URI[sha256sum] = "2c0dd3f0e36e4a10f97e0028989bb873e80f4d1ce212ac55fd3b28857c464f94"
+SRC_URI[xeno.md5sum] = "eafe3b789651f0db9575599dffc60a19"
+SRC_URI[xeno.sha256sum] = "c373261ddb8280d9d7078cdd9cd9646dfb7d70d8cd3aa9693d9148f03990d711"
 
-S = "${WORKDIR}/xenomai-3.0.6"
+S = "${WORKDIR}/xenomai-3.0.8"
 
 inherit autotools pkgconfig
 
