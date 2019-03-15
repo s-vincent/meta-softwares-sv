@@ -9,8 +9,8 @@ PR = "r0"
 SRC_URI = "http://xenomai.org/downloads/xenomai/stable/xenomai-3.0.8.tar.bz2 \
            file://xeno-config-cc.patch \
           "
-SRC_URI[xeno.md5sum] = "eafe3b789651f0db9575599dffc60a19"
-SRC_URI[xeno.sha256sum] = "c373261ddb8280d9d7078cdd9cd9646dfb7d70d8cd3aa9693d9148f03990d711"
+SRC_URI[md5sum] = "eafe3b789651f0db9575599dffc60a19"
+SRC_URI[sha256sum] = "c373261ddb8280d9d7078cdd9cd9646dfb7d70d8cd3aa9693d9148f03990d711"
 
 S = "${WORKDIR}/xenomai-3.0.8"
 
